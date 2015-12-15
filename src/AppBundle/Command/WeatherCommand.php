@@ -64,5 +64,3 @@ class WeatherCommand extends ContainerAwareCommand
     }
 
 }
-
-// 10 * * * * /usr/bin/php /var/www/symfony2/app/console weather london
