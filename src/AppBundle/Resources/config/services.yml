@@ -1,0 +1,17 @@
+services:
+    weather.yahoo.api:
+        class: AppBundle\Services\YahooWeathAPI
+    weather.manager:
+        class: AppBundle\Services\WeatherManager
+        arguments:
+            - '@cache'
+            - '@event_dispatcher'
+    weather.listener:
+        class: AppBundle\EventListener\WeatherListener
+        arguments:
+            - '@logger'
+#            - '@aws.sns'
+        tags:
+            - { name: kernel.event_listener, event: temperature.changed, method: onTemperatureChange }
+            - { name: kernel.event_listener, event: condition.changed, method: onConditionChange }
+            - { name: monolog.logger, channel: weather }
