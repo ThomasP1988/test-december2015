@@ -4,10 +4,13 @@ editoreye
 to run the application, you should install memcached
 
 Step 1.
+
 $ sudo apt-get install memcached 
+
 Step 2. 
 $ sudo apt-get install php5-memcached 
-Step 3. 
+
+Step 3.
 $ sudo /etc/init.d/apache2 restart 
 
 to schedule the command to run every 10 minutes
@@ -16,6 +19,9 @@ step 1
 $ crontab -e
 step 2, add this to the file with edited path
 10 * * * * /usr/bin/php /path/to/Projects/editoreye/bin/console  weather london
+
+Subject
+===================
 
 Create a small Symfony2 app, no web front-end is needed only a Console
 
